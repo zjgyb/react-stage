@@ -14,20 +14,34 @@ imageDatas = (function getImgURL(img) {
     return img;
 })(imageDatas);
 
+class ImgFigure extends Component {
+    render() {
+        const { imgURL, desc } = this.props.data;
+        return(
+            <figure>
+                <img src={ imgURL } alt={ desc }/>
+                <figcaption>
+                    <h2></h2>
+                </figcaption>
+            </figure>
+        );
+    }
+}
+
 class Stage extends Component {
     render() {
+        let controllerUnits = [],
+            imgFigures = [];
+        imageDatas.forEach(value => {
+            imgFigures.push(<ImgFigure data={value} key={value.fileName}/>)
+        });
         return(
             <section className="stage">
                 <section className="img-sec" >
-                    <figure>
-                        <img />
-                        <figcaption>
-                            <h2>dldfs</h2>    
-                        </figcaption>  
-                    </figure>
+                   { imgFigures }
                 </section>
                 <nav className="controller-nav">
-
+                    { controllerUnits }
                 </nav>
             </section>
         );
