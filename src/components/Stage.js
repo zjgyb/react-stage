@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import "./css/Stage.css";
+import "../css/Stage.css";
 
 // 获取图片的相关数据
-let imageDatas = require('./data/imgData.json');
+let imageDatas = require('../data/imgData.json');
 
 // 将图片名信息转成路径信息
 imageDatas = (function getImgURL(img) {
     for (let i = 0, j = img.length; i < j; i++) {
         let singleImgData = img[i];
-        singleImgData.imgURL = require('./img/' + singleImgData.fileName);
+        singleImgData.imgURL = require('../img/' + singleImgData.fileName);
         img[i] = singleImgData;
     }
     return img;
@@ -19,9 +19,14 @@ class Stage extends Component {
         return(
             <section className="stage">
                 <section className="img-sec" >
-
+                    <figure>
+                        <img />
+                        <figcaption>
+                            <h2>dldfs</h2>    
+                        </figcaption>  
+                    </figure>
                 </section>
-                <nav className="control-nav">
+                <nav className="controller-nav">
 
                 </nav>
             </section>
