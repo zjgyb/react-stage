@@ -1,10 +1,22 @@
 .stage {
     position: relative;
     width: 100%;
-    height: 680px;
-    // @at-root {
+    height: 780px;
+    max-height: 100%;
+
+    @at-root {
+        .img-figure {
+            width: 230px;
+            height: 222px;
+            padding: 15px 15px;
+            background-color: #fff;
+        }
         
-    // }
+        figcaption {
+            font-size: 16px;
+            text-align: center;
+        }
+    }
 }
 
 /* image -- start */

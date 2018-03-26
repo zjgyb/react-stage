@@ -16,12 +16,12 @@ imageDatas = (function getImgURL(img) {
 
 class ImgFigure extends Component {
     render() {
-        const { imgURL, desc } = this.props.data;
+        const { imgURL, title, desc } = this.props.data;
         return(
-            <figure>
-                <img src={ imgURL } alt={ desc }/>
+            <figure className="img-figure">
+                <img src={ imgURL } alt={ title } width="230" height="178" />
                 <figcaption>
-                    <h2></h2>
+                    <h2>{ desc }</h2>
                 </figcaption>
             </figure>
         );
