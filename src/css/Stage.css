@@ -4,12 +4,16 @@
   height: 780px;
   max-height: 100%; }
   .img-figure {
+    position: absolute;
     width: 230px;
-    height: 222px;
-    padding: 15px 15px;
-    background-color: #fff; }
+    height: 250px;
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 3px 3px 2px #555; }
   figcaption {
+    margin-top: 35px;
     font-size: 16px;
+    color: #a7a0a2;
     text-align: center; }
 
 /* image -- start */
