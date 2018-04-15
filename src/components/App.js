@@ -15,7 +15,7 @@ class App extends Component {
         {/* <Button variant="raised" color="primary" className="progress">
         	Hello World
 		</Button> */}
-		<Stage />
+		    <Stage />
       </div>
     );
   }

@@ -18,6 +18,7 @@ imageDatas = ((img) => {
 class ImgFigure extends Component {
     render() {
         let styleObj = {};
+
         if(this.props.arrange.pos) {
             styleObj = this.props.arrange.pos;
         }
@@ -37,8 +38,21 @@ class Stage extends Component {
     constructor() {
         super();
         this.state = {
-            imgsArrangeArr: []
+            imgsArrangeArr: this.getDefaultData()
         }
+    }
+
+    getDefaultData() {
+        let imgsArrangeArr = [];
+        for (let i = 0; i < imageDatas.length; i++) {
+            imgsArrangeArr[i] = {
+                pos: {
+                    top: 0,
+                    left: 0
+                }
+            }
+        }
+        return imgsArrangeArr;
     }
 
     getRangeRandom = (low, high) => {
@@ -63,7 +77,7 @@ class Stage extends Component {
 
             imgsArrangeTopArr = [],
             // 取零个或一个
-            topImgNum = Math.ceil(Math.random() * 2),
+            topImgNum = Math.floor(Math.random() * 2),
             topImgSpliceIndex = 0,
             
             imgsArrangeCenterArr = imgsArrangeArr.splice(centerIndex, 1);
@@ -149,21 +163,33 @@ class Stage extends Component {
         // 第一张图片居中
         this.rearrage(1);
     }
+    test(index) {
+        if(!this.state.imgsArrangeArr[index]) {
+            this.setState({
+                imgsArrangeArr: this.state.imgsArrangeArr.push({
+                    pos: {
+                        top: 0,
+                        left: 0
+                    }
+                })
+            })
+        }
+        
+    }
     render() {
         let controllerUnits = [],
             imgFigures = [];
-        
+
         imageDatas.forEach((value, index) => {
             // 这里的key一般配置的是图片的ID
-            if(!this.state.imgsArrangeArr[index]) {
-                this.state.imgsArrangeArr[index] = {
-                    pos: {
-                        left: 0,
-                        top: 0
-                    }
-                }
-            }
-
+            // if(!this.state.imgsArrangeArr[index]) {
+            //     this.state.imgsArrangeArr[index] = {
+            //         pos: {
+            //             left: 0,
+            //             top: 0
+            //         }
+            //     }
+            // }
             imgFigures.push(
                 <ImgFigure 
                     data={value} 
